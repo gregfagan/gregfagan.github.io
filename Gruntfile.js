@@ -8,7 +8,12 @@ module.exports = function(grunt) {
 
         watch: {
             build: {
-                files: '**/*.{js,html,css}',
+                files: [
+                    'index.html',
+                    'icon.png',
+                    'css/**',
+                    'js/**',
+                ],
                 tasks: ['default']
             }
         },
