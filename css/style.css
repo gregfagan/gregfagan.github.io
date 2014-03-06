@@ -1,51 +1,63 @@
 body {
-    background-color: #00AF98;
-    color: #fff;
+    background-color: #5F6660;
     font-family: 'Cambo', serif;
 }
 
 #introduction {
-    /*Skuemorphic looks*/
-    /*background-image: url(https://dl.dropboxusercontent.com/u/22512408/paper.png);*/
-    /*box-shadow: inset 0px 0px 2px rgba(0,0,0,.9);*/
-
-    background-color: #020202;
+    background-color: #CCD7D2;
+    color: #5F6660;
 
     width: 100%;
-    /*min-height: 100%; */
-    padding: 60px;
-    height: 98vh;
+    padding: 20px;
+    /*height: 98vh;*/
 }
 
-#introduction .logo {
-    display: block;
+.centered-header {
     margin: auto;
+    width: 575px;
+}
 
-    width: 150px;
-    height: 150px;
-    border-radius: 75px;
-    
-    border: 5px solid #fff;
-    background-image: url(/icon.png);
+.avatar {
+    float: left;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+    border: 4px solid #5F6660;
+
+    background-image: url(/img/avatar.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
-}
-
-#introduction h1 {
-    font-size: 400%;
     text-align: center;
-    margin: 20px;
+    margin: 14px auto;
 }
 
-#menu {
-    padding: 10px;
-    width: 100%;
-    text-align: center;
+.welcome-text {
+    float: right;
+    font-size: 2.2em;
+    line-height: 1.2em;
+    padding-top: .7em;
+    width: 13em;
 }
 
-#menu a {
-    font-size: 200%;
-    color: #020202;
-    text-decoration: none;
-    font-weight: 800;
+/* iPhone View */
+@media (max-width: 574px) {
+    .centered-header {
+        width: auto;
+    }
+
+    .avatar, .welcome-text {
+        float: none;
+        display: block;
+    }
+
+    .avatar {
+        width: 220px;
+        height: 220px;
+        border-radius: 110px;
+        border-size: 9px;
+    }
+
+    .welcome-text {
+        width: auto;
+    }
 }

@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = function(grunt) {
+    var build_files = [
+            'index.html',
+            'img/**',
+            'css/**',
+            'js/**',
+        ];
+        
     grunt.initConfig({
         // configuration files
         pkg: grunt.file.readJSON('package.json'),
@@ -8,12 +15,7 @@ module.exports = function(grunt) {
 
         watch: {
             build: {
-                files: [
-                    'index.html',
-                    'icon.png',
-                    'css/**',
-                    'js/**',
-                ],
+                files: build_files,
                 tasks: ['default']
             }
         },
@@ -31,12 +33,7 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: false,
-                        src: [
-                            'index.html',
-                            'icon.png',
-                            'css/**',
-                            'js/**',
-                        ],
+                        src: build_files,
                         dest: 'build/' 
                     },
 

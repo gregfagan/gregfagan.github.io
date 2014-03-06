@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <link rel="apple-touch-icon" href="/icon.png">
+        <link rel="apple-touch-icon" href="img/avatar.jpg">
 
         <!-- Bootstrap -->
         <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -19,18 +19,20 @@
 
         <link href="/css/reset.css" rel="stylesheet">
         <link href="/css/borderbox.css" rel="stylesheet">
+        <link href="/css/clearfix.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
 
         <title>Greg Fagan</title>
-	</head>
-	<body>
-        <div id="introduction">
-            <div class="logo"></div>
-            <h1>“hello.”</h1>
-        </div>
 
-        <div id="menu">
-            <a href="/play.html">play</a>
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	</head>
+
+	<body>
+        <div id="introduction" class="cf">
+            <div class="centered-header">
+                <div class="avatar"></div>
+                <p class="welcome-text">Hi! My name is Greg. I like games, mobile, and the web.</p>
+            </div>
         </div>
 
         <script src="/js/main.js"></script>
