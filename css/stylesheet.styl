@@ -1,0 +1,71 @@
+// <Boilerplate>
+@import 'nib'
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+// apply a natural box layout model to all elements
+*, *:before, *:after
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+
+global-reset()
+// </Boilerplate>
+
+light-color = #CCD7D2
+dark-color = #5F6660
+profile-img-small = 100px
+profile-img-large = (profile-img-small * 2.2)
+
+@font-face
+    font-family 'Cambo'
+    font-style serif
+    font-weight 400;
+    src local('Cambo'), local('Cambo-Regular'), url(http://themes.googleusercontent.com/static/fonts/cambo/v3/svHugj7NIrTQRq-kuQ9YEKCWcynf_cDxXwCLxiixG1c.woff) format('woff')
+
+body
+    background-color dark-color
+    font-family 'Cambo', serif
+
+#introduction
+    background-color light-color
+    color dark-color
+    font-size 2.2em
+    line-height 1.2em
+    clearfix()
+
+.centered-header
+    margin auto
+    width 575px
+
+.avatar, .welcome-text
+    float left
+
+.avatar
+    width profile-img-small
+    height profile-img-small
+    border-radius (profile-img-small/2)
+    border 4px solid dark-color
+    background url("/img/avatar.jpg") 0% / 100% no-repeat
+    text-align center
+    margin 14px auto
+
+.welcome-text
+    width 13em
+    padding-top .7em
+    padding-left .3em
+
+/* iPhone View -- should rewrite to make this the default */
+@media screen and (max-width: 574px)
+    .centered-header
+        width auto
+    
+    .avatar, .welcome-text
+        float none
+
+    .avatar
+        width profile-img-large
+        height profile-img-large
+        border-radius (profile-img-large/2)
+        border-size 9px
+    
+    .welcome-text
+        width auto

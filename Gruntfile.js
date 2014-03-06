@@ -29,19 +29,31 @@ module.exports = function(grunt) {
             },
         },
 
+        stylus: {
+            build: {
+                files: {
+                    'build/css/stylesheet.css' : 'css/*.styl'
+                }
+            }
+        },
+
         copy: {
             build: {
                 files: [
                     {
                         expand: false,
-                        src: build_files,
+                        src: [
+                            'index.html',
+                            'img/**',
+                            'js/**'
+                        ],
                         dest: 'build/' 
                     },
 
                     {
                         expand: true,
                         cwd: 'bower_components/bootstrap/dist/',
-                        src: ['**'],
+                        src: '**',
                         dest: 'build/'
                     }
                 ]
@@ -65,6 +77,6 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('default', ['jshint', 'copy']);
+    grunt.registerTask('default', ['jshint', 'stylus', 'copy']);
     grunt.registerTask('deploy', ['s3']);
 };
