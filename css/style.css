@@ -32,10 +32,11 @@ body {
 }
 
 .welcome-text {
-    float: right;
+    float: left;
     font-size: 2.2em;
     line-height: 1.2em;
     padding-top: .7em;
+    padding-left: .3em;
     width: 13em;
 }
 
@@ -47,7 +48,6 @@ body {
 
     .avatar, .welcome-text {
         float: none;
-        display: block;
     }
 
     .avatar {

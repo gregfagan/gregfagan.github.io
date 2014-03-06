@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = function(grunt) {
     var build_files = [
             'index.html',
@@ -7,7 +8,7 @@ module.exports = function(grunt) {
             'css/**',
             'js/**',
         ];
-        
+
     grunt.initConfig({
         // configuration files
         pkg: grunt.file.readJSON('package.json'),
@@ -62,10 +63,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-aws');
+    require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('default', ['jshint', 'copy']);
     grunt.registerTask('deploy', ['s3']);
