@@ -6,23 +6,20 @@
         <title>Greg Fagan</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- iOS Web App compatible -->
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <link rel="apple-touch-icon" href="img/avatar.jpg">
 
         <link href="/css/stylesheet.css" rel="stylesheet">
-
-        <script>
-            document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-        </script>
-	</head>
+    </head>
 
 	<body>
-        <header id="introduction">
-            <div class="centered-header">
-                <div class="avatar"></div>
-                <p class="welcome-text">Hi! My name is Greg. I like games, mobile, and the web.</p>
-            </div>
+        <header>
+            <img src="/img/avatar.jpg"/>
+            <h1>Hi! My name is <span id="name">Greg</span>.</h1>
+            <h2>I like <span id="interest-1">games</span> and the <span id="interest-2">mobile</span> <span id="interest-3">web</span>.</h2>
         </header>
 
         <script src="/js/main.js"></script>

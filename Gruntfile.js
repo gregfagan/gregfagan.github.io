@@ -1,6 +1,5 @@
 'use strict';
 
-
 module.exports = function(grunt) {
     var build_files = [
             'index.html',
@@ -17,7 +16,10 @@ module.exports = function(grunt) {
         watch: {
             build: {
                 files: build_files,
-                tasks: ['default']
+                tasks: ['default'],
+                options: {
+                    livereload: true
+                }
             }
         },
 
@@ -48,13 +50,6 @@ module.exports = function(grunt) {
                             'js/**'
                         ],
                         dest: 'build/' 
-                    },
-
-                    {
-                        expand: true,
-                        cwd: 'bower_components/bootstrap/dist/',
-                        src: '**',
-                        dest: 'build/'
                     }
                 ]
             }
@@ -77,6 +72,10 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
 
-    grunt.registerTask('default', ['jshint', 'stylus', 'copy']);
+    grunt.registerTask('default', [
+        'newer:jshint:build',
+        'newer:stylus:build',
+        'newer:copy:build'
+    ]);
     grunt.registerTask('deploy', ['s3']);
 };
