@@ -1,7 +1,7 @@
-Greg Fagan's personal website
-=============================
+Personal Website
+================
 
-My website is a personal playground for my studies in game design and web development.
+A playground for my studies in game design and web development.
 
 Structure
 ---------
