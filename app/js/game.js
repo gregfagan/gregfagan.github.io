@@ -1,52 +1,48 @@
 define(['view'], function(view){
-    var singleton;
     return function(spec) {
-        if (singleton)
-            return singleton;
+        // Defaults
+        spec.frameSizeInWorldUnits = spec.frameSizeInWorldUnits || 16;
+        spec.view = view;
 
-        // new object
-        var game = {};
-
-        var children = [];
-        function addChild(child) {
-            children.push(child);
-        }
         function message(name) {
-            var i,
+            var key,
                 child,
                 hasProp,
                 handler,
-                type;
-
-            for (i = 0; i < children.length; i += 1) {
-                child = children[i];
+                type,
+                args = Array.prototype.slice.call(arguments);
+                args.splice(0,1);
+            for (key in spec) {
+                child = spec[key];
                 hasProp = child.hasOwnProperty(name);
                 handler = child[name];
                 type = typeof handler;
                 if (hasProp && handler && typeof handler === 'function') {
-                    Array.prototype.splice.call(arguments, 0, 1);
-                    handler.call(child, arguments[0]);
+                    handler.apply(child, args);
                 }
             }
         }
+        spec.message = message;
 
-        // The core game world is a square made of worldSize by worldSize tiles.
-        var _worldSize = 16;
-        var worldSize = function() {
-            return _worldSize;
-        };
+        spec.background.draw = function(game) {
+            // Clear the background on every frame
+            var rectangle = function(props) {
+                //defaults
+                props.color = props.color || 'brown';
+                props.x = props.x || 0;
+                props.y = props.y || 0;
+                props.width = props.width || 300;
+                props.height = props.height || 150;
 
-        // To fit various viewports, the size of a tile is determined programmatically.
-        var _scale;
-        var worldScale = function() {
-            return _scale;
-        };
-
-        // Clear the background on every frame
-        var backgroundColor = '#0F2A42';
-        var drawBackground = function() {
-            view.ctx().fillStyle = backgroundColor;
-            view.ctx().fillRect(0, 0, view.width(), view.height());
+                props.ctx.fillStyle = props.color;
+                props.ctx.fillRect(props.x, props.y, props.width, props.height);
+            };
+            rectangle({
+                ctx: game.view.ctx(),
+                color: this.color,
+                width: game.view.width(),
+                height: game.view.height()
+            });
         };
 
         var lastTime = null;
@@ -60,41 +56,25 @@ define(['view'], function(view){
             dt = (timestamp - lastTime) / 1000;
             lastTime = timestamp;
 
-            update(dt);
-            draw();
+            message('update', spec, dt);
+            message('draw', spec);
 
             requestAnimationFrame(loop);
         }
 
-        function rescale() {
-            _scale = Math.min(
-                (view.width() / worldSize()).toFixed(),
-                (view.height() / worldSize()).toFixed()
+        function worldScale() {
+            return Math.min(
+                (view.width() / spec.frameSizeInWorldUnits).toFixed(),
+                (view.height() / spec.frameSizeInWorldUnits).toFixed()
             );
         }
-
-        function update(dt) {
-            rescale();
-            message('update', dt);
-        }
-
-        function draw() {
-            drawBackground();
-            message('draw');
-        }
+        spec.worldScale = worldScale;
 
         function start() {
             requestAnimationFrame(loop);
         }
+        spec.start = start;
 
-        game.start = start;
-        game.worldSize = worldSize;
-        game.worldScale = worldScale;
-        game.addChild = addChild;
-        game.message = message;
-
-        singleton = game;
-
-        return singleton;
-    }({});
+        return spec;
+    };
 });

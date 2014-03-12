@@ -2,16 +2,6 @@ define(function(){
     // module
     var view = {};
 
-    var _width;
-    var width = function () {
-        return _width;
-    };
-
-    var _height;
-    var height = function () {
-        return _height;
-    };
-
     var _canvas = null;
     var _ctx = null;
     var ctx = function () {
@@ -31,9 +21,6 @@ define(function(){
     };
 
     var resize = function () {
-        _width = window.innerWidth;
-        _height = window.innerHeight;
-
         _canvas.style.width = '100%';
         _canvas.style.height = '100%';
 
@@ -41,9 +28,12 @@ define(function(){
         _canvas.height = height();
     };
 
+    function width() { return window.innerWidth; }
+    function height() { return window.innerHeight; }
+
+    view.ctx = ctx;
     view.width = width;
     view.height = height;
-    view.ctx = ctx;
 
     init();
     return view;

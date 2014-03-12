@@ -32,7 +32,8 @@ module.exports = function(grunt) {
                 cwd: 'app',
                 src: [
                     '**',
-                    '!**/*.styl'
+                    '!**/*.styl',
+                    '!index.html'
                 ],
                 dest: 'build',
                 expand: true
@@ -44,7 +45,7 @@ module.exports = function(grunt) {
                 flatten: true,
                 expand: true
             },
-            livereload: {
+            index: {
                 src: 'app/index.html',
                 dest: 'build/index.html',
                 options: {
@@ -93,7 +94,7 @@ module.exports = function(grunt) {
         watch: {
             development: {
                 files: [ 'app/**' ],
-                tasks: [ 'build' ]
+                tasks: [ 'default' ]
             }
         }
     });

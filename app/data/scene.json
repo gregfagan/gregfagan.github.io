@@ -1,9 +1,10 @@
-"game" = {
-  "core": {
-    "width": 16
-  },
-
-  "player": {
-    "color": ""
-  }
+{
+    "frameSizeInWorldUnits": 16,
+    "background": {
+        "color": "#0F2A42"
+    },
+    "player": {
+        "color": "#F58156",
+        "x": 1
+    }
 }
