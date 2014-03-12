@@ -13,17 +13,19 @@
         <link rel="apple-touch-icon" href="img/avatar.jpg">
 
         <link href="/css/stylesheet.css" rel="stylesheet">
+
+        <script data-main="/js/main" src="/js/require.js"></script>
     </head>
 
     <body>
         <canvas id="screen"></canvas>
 
         <header>
-            <img src="/img/avatar.jpg"/>
+            <img src="/data/img/avatar.jpg"/>
             <h1>Hi! My name is <span id="name">Greg</span>.</h1>
-            <h2>I like <span class="interest">games</span> and the <span class="interest">mobile web</span>.</h2>
+            <h2>I like <span class="interest">mobile games</span> and the <span class="interest">web</span>.</h2>
         </header>
 
-        <script src="/js/main.js"></script>
+        <%= livereload %>
     </body>
 </html>

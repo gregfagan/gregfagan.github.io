@@ -2,6 +2,8 @@
   "name": "gregfagan.com",
   "version": "0.0.1",
   "private": true,
+  "app": "/app",
+  "build": "/build",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.6.1",
@@ -11,7 +13,8 @@
     "grunt-newer": "~0.6.1",
     "grunt-aws": "~0.3.0",
     "load-grunt-tasks": "~0.4.0",
-
-    "bower": "~1.2.8"
+    "bower": "~1.2.8",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-requirejs": "~0.4.3"
   }
 }

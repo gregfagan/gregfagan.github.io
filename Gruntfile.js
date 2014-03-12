@@ -1,60 +1,81 @@
 'use strict';
 
 module.exports = function(grunt) {
-    var build_files = [
-            'index.html',
-            'img/**',
-            'css/**',
-            'js/**',
-        ];
-
     grunt.initConfig({
         // configuration files
         pkg: grunt.file.readJSON('package.json'),
-        aws: grunt.file.readJSON('aws.json'),
 
-        watch: {
+        clean: {
             build: {
-                files: build_files,
-                tasks: ['default'],
-                options: {
-                    livereload: true
-                }
-            }
-        },
+                src: [ 'build' ]
+            },
 
-        jshint: {
-            build: {
-                src: [
-                    'js/**/*.js',
+            compress: {
+                src: [ 
+                    'build/**/*.js',
+                    '!**/main.js',
+                    '!**/require.js'
                 ]
             },
         },
 
-        stylus: {
-            build: {
-                files: {
-                    'build/css/stylesheet.css' : 'css/*.styl'
-                }
+        jshint: {
+            js: {
+                expand: true,
+                cwd: 'app',
+                src: [ '**/*.js', '!**/debug.js']
             }
         },
 
         copy: {
             build: {
-                files: [
-                    {
-                        expand: false,
-                        src: [
-                            'index.html',
-                            'img/**',
-                            'js/**'
-                        ],
-                        dest: 'build/' 
+                cwd: 'app',
+                src: [
+                    '**',
+                    '!**/*.styl'
+                ],
+                dest: 'build',
+                expand: true
+            },
+            bower: {
+                cwd: 'bower_components',
+                src: [ 'requirejs/require.js' ],
+                dest: 'build/js',
+                flatten: true,
+                expand: true
+            },
+            livereload: {
+                src: 'app/index.html',
+                dest: 'build/index.html',
+                options: {
+                    process: function(content, srcpath) {
+                        return grunt.template.process(content);
                     }
-                ]
+                }
             }
         },
 
+        stylus: {
+            build: {
+                cwd: 'app',
+                src: '**/*.styl',
+                dest:'build',
+                expand: true,
+                ext: '.css'
+            }
+        },
+
+        requirejs: {
+            compress: {
+                options: {
+                    baseUrl: 'app/js',
+                    name: 'main',
+                    out: 'build/js/main.js'
+                }
+            },
+        },
+
+        aws: grunt.file.readJSON('aws.json'),
         s3: {
             options: {
                 accessKeyId: '<%= aws.key %>',
@@ -67,15 +88,48 @@ module.exports = function(grunt) {
                 cwd: 'build',
                 src: '**'
             }
+        },
+
+        watch: {
+            development: {
+                files: [ 'app/**' ],
+                tasks: [ 'build' ]
+            }
         }
     });
 
-    require('load-grunt-tasks')(grunt);
+    grunt.registerTask(
+        'build',
+        'Compiles all files to human readable and browser renderable.',
+         function(target) {
+            if (target === 'development') {
+                grunt.config.set('livereload', "<script>document.write('<script src=\"http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1\"></' + 'script>')</script>");    
+            }
+            grunt.task.run([ 'clean:build', 'jshint', 'copy', 'stylus' ]);
+        }
+     );
+
+    grunt.registerTask(
+        'compress',
+        'Concats and minifies files for minimum file size.',
+        [ 'requirejs', 'clean:compress' ]
+    );
+
+    grunt.registerTask(
+        'release',
+        'Prepares build for deployment.',
+        [ 'build', 'compress' ]
+    );
+
+    grunt.registerTask(
+        'deploy',
+        'Clean build and deploy to S3.',
+        ['release', 's3']
+    );
 
     grunt.registerTask('default', [
-        'newer:jshint:build',
-        'newer:stylus:build',
-        'newer:copy:build'
+        'build:development'
     ]);
-    grunt.registerTask('deploy', ['s3']);
+
+    require('load-grunt-tasks')(grunt);
 };

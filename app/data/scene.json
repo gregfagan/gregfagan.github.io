@@ -1,0 +1,9 @@
+"game" = {
+  "core": {
+    "width": 16
+  },
+
+  "player": {
+    "color": ""
+  }
+}
