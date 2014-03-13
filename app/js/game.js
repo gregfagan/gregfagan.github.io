@@ -1,4 +1,4 @@
-define(['view'], function(view){
+define(['view', 'graphics'], function(view, graphics){
     return function(spec) {
         // Defaults
         spec.frameSizeInWorldUnits = spec.frameSizeInWorldUnits || 16;
@@ -26,18 +26,7 @@ define(['view'], function(view){
 
         spec.background.draw = function(game) {
             // Clear the background on every frame
-            var rectangle = function(props) {
-                //defaults
-                props.color = props.color || 'brown';
-                props.x = props.x || 0;
-                props.y = props.y || 0;
-                props.width = props.width || 300;
-                props.height = props.height || 150;
-
-                props.ctx.fillStyle = props.color;
-                props.ctx.fillRect(props.x, props.y, props.width, props.height);
-            };
-            rectangle({
+            graphics.rectangle({
                 ctx: game.view.ctx(),
                 color: this.color,
                 width: game.view.width(),

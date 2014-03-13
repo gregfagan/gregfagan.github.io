@@ -1,4 +1,4 @@
-define(function () {
+define(['graphics'], function (graphics) {
     return function(spec) {
         spec.color = spec.color || 'white';
         spec.x = spec.x || 1;
@@ -25,21 +25,8 @@ define(function () {
                     x: spec.x * scale,
                     y: game.view.height() - radius,
                 };
-
-            function circle(props) {
-                props.ctx.fillStyle = props.color;
-                props.ctx.beginPath();
-                props.ctx.arc(
-                    props.x,
-                    props.y,
-                    props.radius,
-                    0,
-                    Math.PI * 2
-                );
-                props.ctx.fill();
-            }
             
-            circle(props);
+            graphics.circle(props);
         }
         spec.draw = draw;
 
