@@ -11,8 +11,6 @@ global-reset()
 
 // Adapted from http://css-tricks.com/full-browser-width-bars/
 wide-bars(element, color)
-    {element}
-        position relative
     {element}:before
     {element}:after
       content ""
@@ -27,6 +25,8 @@ wide-bars(element, color)
         left 100%
     html, body
         overflow-x hidden
+    // {element}
+    // position relative
 // </Boilerplate>
 
 p-text-color = #454545
@@ -53,14 +53,16 @@ body
     background-color white
     font-family 'Cambo', serif
     color p-text-color
-    font-size 10px
+    font-size 16px
+    line-height 1.8em
 
 h1
-    font-size 2em
+    font-size 1.8em
     line-height 1.3em
 
 h2
-    font-size 1.8em
+    font-size 1.6em
+    line-height 1.1em
     color p-light-text-color
 
 #screen
@@ -76,52 +78,50 @@ h2
     -ms-interpolation-mode: nearest-neighbor;   // IE
 
 header
-    position relative
-    top 2em
     width 90%
-    margin 0 auto
+    margin 2em auto
     padding 0.5em 
     background-color header-color
     box-shadow 0.5em 0.5em black
+    line-height 1.3em
+    text-align center
 
     img
-        display block
-        width 7em
+        width 10em
         border-radius 50%
         border 0.25em solid white
-        margin 4px auto
-        float left
+        margin .5em
+        // float left
 
-    h1, h2
-        padding-left 80px 
-
-    h1
-        padding-top 0.5em
-
-    h2
-        clearfix()
+    img
+    .greeting
+        display inline-block
+        vertical-align middle
+        text-align left
 
 #name
     color accent-orange
 .interest
     color accent-pink
 
+article
+    position absolute
+    top 100%
+    height 100%
+    width 100%
+    margin 0 auto
+    background white
+    padding 1em
+
 /* Larger screens */
-@media screen and (min-width: 620px)
+@media screen and (min-width: 42.625em)
     header
+    article
         font-size 22px
-        width 620px
+    
+    header
+        text-align left
+        width 31em
 
         img
-            width profile-img-small
-            float left
-
-        h1, h2
-            padding-left profile-img-small + 20px
-
-        h1
-            line-height 1em
-            padding-top 14px
-
-        h2
-            font-size 1.4em
+            width 5em
