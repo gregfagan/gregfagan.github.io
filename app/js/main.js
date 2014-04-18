@@ -4,29 +4,34 @@ require(['underscore','react-with-addons'], function(_, React) {
             name: "temple3d",
             tech: "C# and Unity3D",
             collaborators: ["@cjkimberlin"],
+            screenshot: "data/img/temple3d.jpg",
             description: "An epic reimagining of the original Ludum Dare game in the third dimension."
         },
         {
             name: "temple2d",
             tech: "JavaScript and Cocos2D-HTML5",
             collaborators: ["@cjkimberlin"],
+            screenshot: "data/img/temple2d.png",
             description: "A retro style top down temple exploration adventure built for Ludum Dare 27."
         },
         {
             name: "möbius",
             tech: "ActionScript and FlashPunk",
             collaborators: ["@cjkimberlin", "@htimswi"],
+            screenshot: "data/img/möbius.jpg",
             description: "Minimalist platforming with one button in a mysterious world. A Ludum Dare 26 game jam creation."
         },
         {
             name: "planes of misery",
             tech: "ActionScript and FlashPunk",
             collaborators: ["@cjkimberlin", "@htimswi"],
+            screenshot: "data/img/planes.jpg",
             description: "Inflict discomfort on the airplane's passengers by seating them next to other obnoxious travelers. Made for Ludum Dare 25."
         },
         {
             name: "because we're hungry, that's why",
             tech: "C# and XNA",
+            screenshot: "data/img/hungry.jpg",
             description: "A pair of gorillas take to the city to find some food -- people! Watch out, they are defending themselves with bombs. A single button game for Windows Phone."
         },
     ];
