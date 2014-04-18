@@ -20,7 +20,7 @@ require(['underscore','react-with-addons'], function(_, React) {
             name: "möbius",
             tech: "ActionScript and FlashPunk",
             collaborators: ["@cjkimberlin", "@htimswi"],
-            screenshot: "data/img/möbius.jpg",
+            screenshot: "data/img/moebius.jpg",
             href: "http://www.ludumdare.com/compo/ludum-dare-26/?action=preview&uid=22908",
             description: "Minimalist platforming with one button in a mysterious world. A Ludum Dare 26 game jam creation."
         },

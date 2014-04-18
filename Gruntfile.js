@@ -71,7 +71,7 @@ module.exports = function(grunt) {
         requirejs: {
             compress: {
                 options: {
-                    baseUrl: 'app/js',
+                    baseUrl: 'build/js',
                     name: 'main',
                     out: 'build/js/main.js'
                 }
