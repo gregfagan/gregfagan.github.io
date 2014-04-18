@@ -5,6 +5,7 @@ require(['underscore','react-with-addons'], function(_, React) {
             tech: "C# and Unity3D",
             collaborators: ["@cjkimberlin"],
             screenshot: "data/img/temple3d.jpg",
+            href: "http://temple3d.s3-website-us-west-2.amazonaws.com",
             description: "An epic reimagining of the original Ludum Dare game in the third dimension."
         },
         {
@@ -12,13 +13,15 @@ require(['underscore','react-with-addons'], function(_, React) {
             tech: "JavaScript and Cocos2D-HTML5",
             collaborators: ["@cjkimberlin"],
             screenshot: "data/img/temple2d.png",
-            description: "A retro style top down temple exploration adventure built for Ludum Dare 27."
+            href: "http://www.ludumdare.com/compo/ludum-dare-27/?action=preview&uid=22908",
+            description: "A retro-style top down temple exploration adventure built for Ludum Dare 27."
         },
         {
             name: "möbius",
             tech: "ActionScript and FlashPunk",
             collaborators: ["@cjkimberlin", "@htimswi"],
             screenshot: "data/img/möbius.jpg",
+            href: "http://www.ludumdare.com/compo/ludum-dare-26/?action=preview&uid=22908",
             description: "Minimalist platforming with one button in a mysterious world. A Ludum Dare 26 game jam creation."
         },
         {
@@ -26,12 +29,14 @@ require(['underscore','react-with-addons'], function(_, React) {
             tech: "ActionScript and FlashPunk",
             collaborators: ["@cjkimberlin", "@htimswi"],
             screenshot: "data/img/planes.jpg",
+            href: "http://www.ludumdare.com/compo/ludum-dare-25/?action=preview&uid=19233",
             description: "Inflict discomfort on the airplane's passengers by seating them next to other obnoxious travelers. Made for Ludum Dare 25."
         },
         {
             name: "because we're hungry, that's why",
             tech: "C# and XNA",
             screenshot: "data/img/hungry.jpg",
+            href: "http://www.windowsphone.com/en-us/store/app/because-we-re-hungry/4cfa5267-f3b0-e011-a53c-78e7d1fa76f8",
             description: "A pair of gorillas take to the city to find some food -- people! Watch out, they are defending themselves with bombs. A single button game for Windows Phone."
         },
     ];
@@ -59,10 +64,14 @@ require(['underscore','react-with-addons'], function(_, React) {
 
     var Project = React.createClass({
         render: function() {
-            imgBlock = React.DOM.img({src: this.props.screenshot});
+            imgBlock = React.DOM.a({href: this.props.href},
+                React.DOM.img({src: this.props.screenshot})
+            );
 
             var children = [
-                React.DOM.h1(null, this.props.name),
+                React.DOM.h1(null, 
+                    React.DOM.a({href: this.props.href}, this.props.name)
+                ),
                 React.DOM.h2(null, this.props.tech)
             ];
 
