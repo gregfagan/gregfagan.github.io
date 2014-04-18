@@ -7,20 +7,13 @@
 
         <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
-        <!-- iOS Web App compatible -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <link rel="apple-touch-icon" href="img/avatar.jpg">
-
         <link href="/css/stylesheet.css" rel="stylesheet">
 
         <script data-main="/js/main" src="/js/require.js"></script>
     </head>
 
     <body>
-        <canvas id="screen"></canvas>
-
-        <header>
+        <header class="panel">
             <img src="/data/img/avatar.jpg"/>
             <div class="greeting">
                 <h1>Hi! My name is <span id="name">Greg</span>.</h1>
@@ -28,10 +21,7 @@
             <div>
         </header>
 
-        <article>
-            <h1>Projects</h1>
-            <p>Here is some placeholder text which will eventually be replaced by links to previous work.</p>
-        </article>
+        <section id="projects"></section>
 
         <%= livereload %>
     </body>
