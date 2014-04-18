@@ -2,7 +2,7 @@ require(['underscore','react-with-addons'], function(_, React) {
     var projects = [
         {
             name: "temple3d",
-            tech: "C# and Unity3D",
+            tech: "C# and Unity",
             collaborators: ["@cjkimberlin"],
             screenshot: "data/img/temple3d.jpg",
             href: "http://temple3d.s3-website-us-west-2.amazonaws.com",
