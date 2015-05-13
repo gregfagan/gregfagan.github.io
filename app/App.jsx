@@ -1,29 +1,14 @@
 import React from 'react';
-import View from 'View';
-import Avatar from 'Avatar';
-import Text from 'Text';
+import AboutMe from 'AboutMe';
 
 export default class App extends React.Component {
+
   render() {
     var data = this.props.data;
-    var { about, portrait } = data;
+    var { description, avatar } = data;
 
     return (
-      <View tag='header' direction='row' wrap={true} justify='center' align='center'>
-        <Avatar network='facebook' username='gregfagan' style={styles.avatar}/>
-        <Text basis={320} style={styles.about}>{about}</Text>
-      </View>
+      <AboutMe avatar={avatar} description={description}/>
     );
-  }
-}
-
-let styles = {
-  avatar: {
-    borderRadius: '50%',
-    marginLeft: 20,
-  },
-  about: {
-    margin: 20,
-    maxWidth: 640
   }
 }

@@ -1,6 +1,9 @@
 {
-  "portrait": "https://avatars.io/facebook/gregfagan?size=large",
-  "about": "Hi, my name is Greg. I’m a front-end software engineer writing JavaScript and Swift to build interactive data visualizations and other applications. I’m also a hobbyist game developer, with a keen appreciation for game design and especially tactile interaction design.",
+  "avatar": {
+    "network": "instagram",
+    "username": "g___r___e___g"
+  },
+  "description": "JavaScript, Swift, interactions, data visualizations, and games crafted in Seattle",
   "works": [
     {
       "name": "ReactJS + D3 data visualization"
