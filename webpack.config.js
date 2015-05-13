@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
+    'webpack/hot/dev-server',
     './app/main.js',
   ],
   output: {
@@ -15,7 +15,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
+      { test: /\.css$/, loader: 'style!css' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
     ]
