@@ -1,28 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>{%=o.htmlWebpackPlugin.options.title%}</title>
         <meta charset="utf-8">
-
-        <title>Greg Fagan</title>
-
-        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-
-        <link href="/css/stylesheet.css" rel="stylesheet">
-
-        <script data-main="/js/main" src="/js/require.js"></script>
+        <meta name="viewport" content="width=device-width">
     </head>
-
     <body>
-        <header class="panel">
-            <img src="https://avatars.io/facebook/gregfagan?size=large"/>
-            <div class="greeting">
-                <h1>Hi! My name is <span id="name">Greg</span>.</h1>
-                <h2>I like crafting <span class="interest">interactive experiences</span> for <span class="interest">mobile devices</span> and the <span class="interest">web</span>.</h2>
-            <div>
-        </header>
-
-        <section id="projects"></section>
-
-        <%= livereload %>
+        <div id="app"/>
     </body>
+    <script data-main="main" src="{%=o.htmlWebpackPlugin.files.chunks.main.entry%}"></script>
 </html>
