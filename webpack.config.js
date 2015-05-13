@@ -15,12 +15,13 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /\.css$/, loader: "style!css" },
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.jsx$|\.js$/, exclude: /node_modules/, loaders: ['react-hot', 'babel'] },
+      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
+    extensions: ['', '.js', '.jsx', '.json', '.css'],
     root: path.join(__dirname, 'app')
   },
   plugins: [
