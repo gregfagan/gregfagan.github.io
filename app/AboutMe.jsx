@@ -8,10 +8,10 @@ import SocialLink from 'SocialLink';
 
 export default class AboutMe extends React.Component {
   render() {
-    var { avatar, description, social } = this.props;
+    var { avatar, description, social, ...other } = this.props;
 
     return (
-      <View justify='center' align='center' style={styles.container}>
+      <View justify='center' align='center' {...other}>
         <Avatar network={avatar.network} username={avatar.username} style={styles.avatar}/>
         <View direction='row' wrap={true} justify='space-between' style={styles.socialBox}>
         {
@@ -28,9 +28,6 @@ let avatarSize = 100;
 let socialLinkSize = avatarSize / 3;
 
 let styles = {
-  container: {
-    padding: 20
-  },
   avatar: {
     borderRadius: '50%',
     width: avatarSize,
