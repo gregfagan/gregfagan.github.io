@@ -18,6 +18,7 @@ module.exports = {
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.json$/, loader: 'json-loader' },
       { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
+      { test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192' }
     ]
   },
   resolve: {

@@ -5,10 +5,10 @@ export default class App extends React.Component {
 
   render() {
     var data = this.props.data;
-    var { description, avatar } = data;
+    var { description, avatar, social } = data;
 
     return (
-      <AboutMe avatar={avatar} description={description}/>
+      <AboutMe avatar={avatar} description={description} social={social}/>
     );
   }
 }

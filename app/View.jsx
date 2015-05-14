@@ -12,8 +12,7 @@ function prefix(flexOption) {
 
 export default class View extends React.Component {
   render() {
-    let { tag, direction, grow, shrink, basis, justify, align, wrap, style, ...other } = this.props;
-    let Tag = tag || 'div';
+    let { tag:Tag='div', direction, grow, shrink, basis, justify, align, wrap, style, ...other } = this.props;
     let flexStyle = {
       flexDirection: direction || 'column',
       flexGrow: grow || 0,
