@@ -14,7 +14,7 @@ export default class App extends React.Component {
     let about = <AboutMe avatar={avatar} description={description} social={social} style={styles.about}/>;
     let cards = [ about ].concat(_.map(works, this.renderWork));
 
-    return  <Grid columns={3}>{ _.map(cards, this.renderCard) }</Grid>;
+    return <Grid>{ _.map(cards, this.renderCard) }</Grid>;
   }
 
   renderCard(face, key) { return <Card key={key}>{face}</Card> }
