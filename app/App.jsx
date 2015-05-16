@@ -6,12 +6,11 @@ import Card from 'Card';
 import Text from 'Text';
 
 export default class App extends React.Component {
-
   render() {
     let data = this.props.data;
     let { description, avatar, social, works } = data;
 
-    let about = <AboutMe avatar={avatar} description={description} social={social} style={styles.about}/>;
+    let about = <AboutMe avatar={avatar} description={description} social={social}/>;
     let cards = [ about ].concat(_.map(works, this.renderWork));
 
     return <Grid>{ _.map(cards, this.renderCard) }</Grid>;
@@ -22,9 +21,6 @@ export default class App extends React.Component {
 }
 
 let styles = {
-  about: {
-    padding: '10%'
-  },
   work: {
     padding: '5%',
     color: 'white',

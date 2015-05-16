@@ -11,7 +11,7 @@ export default class AboutMe extends React.Component {
     var { avatar, description, social, ...other } = this.props;
 
     return (
-      <View grow={1} justify='center' align='center' {...other}>
+      <View grow={1} justify='center' align='center' style={styles.container} {...other}>
         <Avatar network={avatar.network} username={avatar.username} style={styles.avatar}/>
         <View direction='row' wrap={true} justify='space-between' style={styles.socialBox}>
         {
@@ -27,7 +27,10 @@ export default class AboutMe extends React.Component {
 let avatarSize = 100;
 let socialLinkSize = avatarSize / 3;
 
-let styles = {
+let styles = { 
+  container: {
+    padding: '5%'
+  },
   avatar: {
     borderRadius: '50%',
     width: avatarSize,
