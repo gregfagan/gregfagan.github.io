@@ -1,29 +1,21 @@
 import React from 'react';
-import AboutMe from 'AboutMe';
-import View from 'View';
 import Grid from 'Grid';
 import Card from 'Card';
-import Text from 'Text';
+
+import AboutMe from 'AboutMe';
+import Work from 'Work';
 
 export default class App extends React.Component {
   render() {
     let data = this.props.data;
     let { description, avatar, social, works } = data;
 
-    let about = <AboutMe avatar={avatar} description={description} social={social}/>;
-    let cards = [ about ].concat(_.map(works, this.renderWork));
+    let aboutView = <AboutMe avatar={avatar} description={description} social={social}/>;
+    let workViews = _.map(works, (work) => <Work {...work}/>)
+    let views = [ aboutView, ...workViews ];
 
-    return <Grid>{ _.map(cards, this.renderCard) }</Grid>;
+    return <Grid>{ _.map(views, this.renderCard) }</Grid>;
   }
 
   renderCard(face, key) { return <Card key={key}>{face}</Card> }
-  renderWork(work) { return <View grow={1} style={styles.work}><Text>{work.name}</Text></View> }
-}
-
-let styles = {
-  work: {
-    padding: '5%',
-    color: 'white',
-    backgroundColor: 'darkGrey'
-  }
 }

@@ -10,6 +10,6 @@ export default class Card extends React.Component {
 }
 
 let cardStyle = {
-  borderRadius: 5,
+  borderRadius: 3,
   overflow: 'hidden'
 }
