@@ -18,7 +18,7 @@ export default class App extends React.Component {
   }
 
   renderCard(face, key) { return <Card key={key}>{face}</Card> }
-  renderWork(work) { return <View style={styles.work}><Text>{work.name}</Text></View> }
+  renderWork(work) { return <View grow={1} style={styles.work}><Text>{work.name}</Text></View> }
 }
 
 let styles = {

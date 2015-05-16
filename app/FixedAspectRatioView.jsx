@@ -12,9 +12,9 @@ export default class FixedAspectRatioView extends React.Component {
       margin: margin
     }
     return (
-      <View grow={0} style={sizingStyle}>
+      <View style={sizingStyle}>
         <View style={styles.wrapper}>
-          <View style={otherStyle} {...other}>
+          <View grow={1} style={otherStyle} {...other}>
             {children}
           </View>
         </View>

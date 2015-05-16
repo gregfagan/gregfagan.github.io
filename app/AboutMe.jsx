@@ -11,7 +11,7 @@ export default class AboutMe extends React.Component {
     var { avatar, description, social, ...other } = this.props;
 
     return (
-      <View justify='center' align='center' {...other}>
+      <View grow={1} justify='center' align='center' {...other}>
         <Avatar network={avatar.network} username={avatar.username} style={styles.avatar}/>
         <View direction='row' wrap={true} justify='space-between' style={styles.socialBox}>
         {
