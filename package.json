@@ -10,6 +10,7 @@
   "app": "/app",
   "build": "/build",
   "devDependencies": {
+    "babel": "^5.4.3",
     "babel-core": "^5.3.0",
     "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
