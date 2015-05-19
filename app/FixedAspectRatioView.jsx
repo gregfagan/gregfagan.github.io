@@ -5,10 +5,9 @@ export default class FixedAspectRatioView extends React.Component {
   render() {
     let { ratio, style, children, ...other } = this.props;
     let { width, height, margin, ...otherStyle } = style;
-    let numericWidth = Number(width.replace(/[^\d\.\-]/g, ''));
     let sizingStyle = {
       width: width,
-      paddingBottom: `${numericWidth*1/ratio}%`,
+      height: `${width*1/ratio}`,
       margin: margin
     }
     return (
