@@ -25,6 +25,11 @@
   ],
   "games": [
     {
+      "name": "klondike solitaire",
+      "tech": "ReactJS",
+      "description": "A classic game rebuilt for the web."
+    },
+    {
       "name": "temple3d",
       "tech": "C# and Unity",
       "collaborators": ["@cjkimberlin"],
