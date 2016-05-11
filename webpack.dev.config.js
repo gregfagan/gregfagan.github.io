@@ -1,37 +1,36 @@
-var _ = require('lodash');
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+import _ from 'lodash';
+import webpack from 'webpack';
+import os from 'os';
+import baseConfig from './webpack.base.config';
 
-module.exports = {
+const netInterfaces = os.networkInterfaces();
+const addresses = _(netInterfaces)
+  .map(value => value)
+  .flatten()
+  .filter(netInterface => (netInterface.family === 'IPv4' && !netInterface.internal))
+  .map(netInterface => netInterface.address)
+  .value();
+
+const devServerConfig = {
+  hostname: _.first(addresses),
+  port: 8080,
+};
+
+const { entry:baseEntry, plugins:basePlugins, ...otherBaseConfig } = baseConfig;
+
+const config = {
+  ...devServerConfig,
+  ...otherBaseConfig,
+  devtool: 'eval',
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
+    `webpack-dev-server/client?http://${devServerConfig.hostname}:${devServerConfig.port}`,
     'webpack/hot/dev-server',
-    './app/main.js',
+    ...baseEntry,
   ],
-  output: {
-    path: path.join(__dirname, "build"),
-    filename: 'bundle.js',
-    publicPath: '/'
-  },
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.json$/, loaders: ['../json-image-loader', 'json-loader'] },
-      { test: /\.jsx?$/, exclude: /node_modules/, loaders: ['react-hot', 'babel?stage=1'] },
-      { test: /\.(png|jpg|svg)$/, loader: 'url-loader?limit=8192' }
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json', '.css'],
-    root: path.join(__dirname, 'app')
-  },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Greg Fagan',
-      template: 'app/index.html'
-    }),
+    ...basePlugins,
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ]
-}
+  ],
+};
+
+export default config;
