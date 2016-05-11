@@ -13,21 +13,26 @@ import { Linkedin, Github, Twitter } from './icons';
 const colorFn = colorFnGenerator(200, 490, 275, 325);
 
 const Info = () => {
-  const containerStyle = {
+  const centeringStyle = {
     position: 'absolute',
+    top: 0,
     display: 'flex',
-    boxSizing: 'border-box',
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
     alignItems: 'center',
-    padding: '0.5em',
-    bottom: 0,
     width: '100vw',
+    height: '100vh',
+  };
+  
+  const containerStyle = {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '1em',
     background: 'rgba(0, 0, 0, 0.5)',
   };
   
   const textStyle = {
-    flex: '1 0 auto',
     color: 'white',
     fontSize: 16,
   };
@@ -38,11 +43,12 @@ const Info = () => {
   }
   
   return (
-    <div style={containerStyle}>
-      <span style={textStyle}>Building cool things with code.</span>
-      <a style={iconStyle} href="https://www.linkedin.com/in/gregorysfagan"><Linkedin /></a>
-      <a style={iconStyle} href="https://github.com/gregfagan"><Github /></a>
-      <a style={iconStyle} href="https://twitter.com/gregfagan"><Twitter /></a>
+    <div style={centeringStyle}>
+      <div style={containerStyle}>
+        <a style={{...iconStyle, marginLeft: 0}} href="https://github.com/gregfagan"><Github /></a>
+        <a style={iconStyle} href="https://linkedin.com/in/gregorysfagan"><Linkedin /></a>
+        <a style={iconStyle} href="https://twitter.com/gregfagan"><Twitter /></a>
+      </div>
     </div>
   );
 };

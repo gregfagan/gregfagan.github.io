@@ -1,3 +1,5 @@
+// Source: iconmonstr.com
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
