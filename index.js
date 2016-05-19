@@ -28,17 +28,12 @@ const Info = () => {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: '1em',
+    padding: '1.2em',
     background: 'rgba(0, 0, 0, 0.5)',
   };
   
-  const textStyle = {
-    color: 'white',
-    fontSize: 16,
-  };
-  
   const iconStyle = {
-    marginLeft: '0.7em',
+    marginLeft: '1em',
     display: 'flex',
   }
   
