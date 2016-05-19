@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import baseConfig from './webpack.base.config.js';
 
 const { output:baseOutput, plugins: basePlugins, ...otherBaseConfig } = baseConfig;
@@ -22,7 +23,8 @@ const config = {
        'process.env':{
         'NODE_ENV': JSON.stringify('production')
       }
-    })
+    }),
+    new CopyWebpackPlugin([{from: 'CNAME'}]),
   ]
 }
 
