@@ -23,6 +23,7 @@ const config = {
       template: 'node_modules/html-webpack-template/index.ejs',
       appMountId: 'app',
       mobile: true,
+      inject: false,
     }),
     new webpack.NoErrorsPlugin()
   ],
