@@ -1,4 +1,5 @@
+// This config applies to the webpack.config.babel.js file, which specifies a
+// different configuration for compiling the other modules
 {
-  "presets": ["es2015", "react"],
-  "plugins": ["transform-object-rest-spread"],
+  "presets": ["env"]
 }
