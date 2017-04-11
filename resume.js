@@ -75,7 +75,7 @@ const Employment = ({title, employer, when, tech, what}) => (
     <h3>{when}</h3>
     <h3>{tech}</h3>
     <ul>
-      { what.map(item => <li>{item}</li>) }
+      { what.map((item, i) => <li key={i}>{item}</li>) }
     </ul>
   </div>
 )
