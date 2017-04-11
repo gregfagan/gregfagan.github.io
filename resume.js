@@ -64,10 +64,27 @@ const content = {
   ]
 }
 
+const pageStyle = {
+  padding: '2em'
+}
+
+const Employment = ({title, employer, when, tech, what}) => (
+  <div>
+    <h2>{title}</h2>
+    <h3>{employer}</h3>
+    <h3>{when}</h3>
+    <h3>{tech}</h3>
+    <ul>
+      { what.map(item => <li>{item}</li>) }
+    </ul>
+  </div>
+)
+
 export default () => {
   return (
-    <div>
+    <div style={pageStyle}>
       <h1>Greg Fagan</h1>
+      { content.employment.map((e, i) => <Employment {...e} key={i}/>) }
     </div>
   )
 }

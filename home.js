@@ -1,13 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import Triangles from './geometric-art/triangles-canvas'
-import colorFnGenerator from './geometric-art/color'
-import { withWindowState } from 'react-window-state'
-
+import { primary } from './color'
 import { Linkedin, Github, Twitter } from './icons'
 
-const colorFn = colorFnGenerator(200, 490, 275, 325)
+const IconTray = () => {
+  const containerStyle = {
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '1.2em',
+    paddingBottom: '0.8em'
+  }
+
+  const iconStyle = {
+    marginLeft: '1em',
+    display: 'flex',
+  }
+
+  return (
+    <div style={containerStyle}>
+      <a style={{...iconStyle, marginLeft: 0}} href="https://github.com/gregfagan"><Github /></a>
+      <a style={iconStyle} href="https://linkedin.com/in/gregorysfagan"><Linkedin /></a>
+      <a style={iconStyle} href="https://twitter.com/gregfagan"><Twitter /></a>
+    </div>
+  )
+}
 
 const Info = () => {
   const centeringStyle = {
@@ -23,46 +42,23 @@ const Info = () => {
   const containerStyle = {
     boxSizing: 'border-box',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
-    padding: '1.2em',
-    background: 'rgba(0, 0, 0, 0.5)',
-  }
-
-  const iconStyle = {
-    marginLeft: '1em',
-    display: 'flex',
   }
 
   const textStyle ={
-    color: 'white',
-    margin: '1.2em',
+    color: primary,
     textDecoration: 'none',
   }
 
   return (
     <div style={centeringStyle}>
       <div style={containerStyle}>
-        <a style={{...iconStyle, marginLeft: 0}} href="https://github.com/gregfagan"><Github /></a>
-        <a style={iconStyle} href="https://linkedin.com/in/gregorysfagan"><Linkedin /></a>
-        <a style={iconStyle} href="https://twitter.com/gregfagan"><Twitter /></a>
+        <IconTray />
         <a style={textStyle} href="resume.html">resume</a>
-      </div>
+       </div>
     </div>
   )
 }
 
-const Home = ({win}) => (
-  <div>
-    <Triangles
-      width={win.width}
-      height={win.height}
-      sideLength={60}
-      spacing={2}
-      color={colorFn}
-    />
-    <Info/>
-  </div>
-)
-
-export default withWindowState(Home)
+export default () => <Info/>
