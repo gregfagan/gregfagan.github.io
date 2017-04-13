@@ -8,7 +8,7 @@ const content = {
       title: "Software Developer",
       employer: "Self-Employed — Partnership with Intentional Futures",
       when: "2014-2015",
-      tech: "Javascript, React, D3, HTML/CSS, Swift, Parse (back-end platform)",
+      tech: "JavaScript, React, D3, HTML/CSS, Swift, Parse (back-end platform)",
       what: [
         "Developed single page data visualization web apps",
         "Prototyped an iOS game/social media experience",
@@ -46,17 +46,17 @@ const content = {
   projects: [
     {
       title: "Game Development",
-      tech: "Javascript, React, Unity, C#, XNA, Objective-C",
+      tech: "JavaScript, React, Unity, C#, XNA, Objective-C",
       what: [
         "Ludum Dare game jam entries: highest scoring #45 out of 736 games (2013-present)",
         "Iterative protoypes of a mobile touch based 2D platformer (2009-present)",
-        "Built Klondike Solitaire to learn Javascript and React (2014-2015)",
+        "Built Klondike Solitaire to learn JavaScript and React (2014-2015)",
         "Shipped a single-button mobile eat-em-up game for Windows Phone (2011)",
       ]
     },
     {
       title: "Exploration",
-      tech: "Clojure, ClojureScript, Scheme, Javascript, NodeJS, C++",
+      tech: "Clojure, ClojureScript, Scheme, JavaScript, NodeJS, C++",
       what: [
         "Study of functional programming; solving 4clojure.com koans (2014-present)",
         "Partial development of a companion app for Twitch.tv Diablo II speed runners (2016)"
