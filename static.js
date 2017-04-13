@@ -3,6 +3,8 @@ import 'normalize.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactDOMServer from 'react-dom/server'
+import styled, { styleSheet } from 'styled-components'
+
 import Home from './home.js'
 import Resume from './resume'
 
@@ -15,6 +17,8 @@ export default (locals) => {
   const assets = Object.keys(locals.webpackStats.compilation.assets)
   const css = assets.filter(asset => asset.match(/\.css$/))
 
+  const markup = ReactDOMServer.renderToStaticMarkup(appElement)
+
   return `
     <!DOCTYPE html>
     <html>
@@ -22,9 +26,10 @@ export default (locals) => {
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
         <title>Greg Fagan</title>
         ${ css.map(sheet => `<link href="${sheet}" rel="stylesheet">`).join('\n') }
+        <style>${ styleSheet.getCSS() } </style>
       </head>
       <body>
-        ${ ReactDOMServer.renderToStaticMarkup(appElement) }
+        ${ markup }
       </body>
     </html>
   `

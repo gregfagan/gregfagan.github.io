@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import styled from 'styled-components'
 
 const content = {
   employment: [
     {
-      title: "Software Developer (independent contractor)",
-      employer: "Partnership with Intentional Futures",
+      title: "Software Developer",
+      employer: "Self-Employed — Partnership with Intentional Futures",
       when: "2014-2015",
       tech: "Javascript, React, D3, HTML/CSS, Swift, Parse (back-end platform)",
       what: [
@@ -64,27 +65,89 @@ const content = {
   ]
 }
 
-const pageStyle = {
-  padding: '2em'
-}
+const Page = styled.div`
+  font-size: 14px;
+  padding: 2em;
+`
+
+const Block = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const HorizontalBlock = styled(Block)`
+  flex-direction: row;
+`
+
+const ContentSectionTitle = styled.h2`
+  flex-grow: 1;
+  border-bottom: 1px solid black;
+`
+
+const ContentSection = ({title, children}) => (
+  <Block>
+    <ContentSectionTitle>{title}</ContentSectionTitle>
+    { children }
+  </Block>
+)
+
+
+const ContentBlock = styled(Block)`
+  margin-bottom: 1.2em;
+`
+
+const ContentDetails = styled.div`
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+`
+
+const ContentTitle = styled.h3`
+  margin: 0em;
+  font-size: 1.2em;
+  line-height: 1.5em;
+`
+
+const TwoColumn = ({left, right}) => (
+  <HorizontalBlock>
+    <span style={{ flex: 1 }}>{ left }</span>
+    <span>{ right }</span>
+  </HorizontalBlock>
+)
+
+const ContentDescriptor = styled.span`
+  color: #666;
+  font-size: 0.9em;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0em;
+  line-height: 1.3em;
+`
+
+const ContentList = styled.ul`
+  margin: 0em;
+  padding-left: 1.2em;
+  line-height: 1.2em;
+`
 
 const Employment = ({title, employer, when, tech, what}) => (
-  <div>
-    <h2>{title}</h2>
-    <h3>{employer}</h3>
-    <h3>{when}</h3>
-    <h3>{tech}</h3>
-    <ul>
+  <ContentBlock>
+    <ContentTitle>{title}</ContentTitle>
+      <ContentDetails><TwoColumn left={employer} right={when} />
+      <ContentDescriptor>{tech}</ContentDescriptor>
+    </ContentDetails>
+    <ContentList>
       { what.map((item, i) => <li key={i}>{item}</li>) }
-    </ul>
-  </div>
+    </ContentList>
+  </ContentBlock>
 )
 
 export default () => {
   return (
-    <div style={pageStyle}>
+    <Page>
       <h1>Greg Fagan</h1>
-      { content.employment.map((e, i) => <Employment {...e} key={i}/>) }
-    </div>
+      <ContentSection title='Employment'>
+        { content.employment.map((e, i) => <Employment {...e} key={i}/>) }
+      </ContentSection>
+    </Page>
   )
 }
