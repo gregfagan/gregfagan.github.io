@@ -1,5 +1,6 @@
-import webpack from 'webpack';
-import path from 'path';
+import webpack from 'webpack'
+import path from 'path'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin'
 
@@ -40,8 +41,9 @@ const config = {
     new StaticSiteGeneratorPlugin({
       paths: ['index.html', 'resume.html']
     }),
+    new CopyWebpackPlugin([{from: 'CNAME'}]),
     new webpack.NoEmitOnErrorsPlugin()
   ],
-};
+}
 
-export default config;
+export default config

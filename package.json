@@ -5,7 +5,7 @@
   "author": "Greg Fagan",
   "scripts": {
     "start": "webpack --progress --watch & serve build",
-    "build": "rm -rf build && PRODUCTION=1 webpack -p",
+    "build": "rm -rf build && webpack -p",
     "publish": "./publish.sh"
   },
   "private": true,
