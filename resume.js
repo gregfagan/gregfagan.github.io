@@ -68,6 +68,13 @@ const content = {
 const Page = styled.div`
   font-size: 14px;
   padding: 2em;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Open Sans', sans-serif;
+`
+
+const Title = styled.h1`
+  font-family: 'Days One', sans-serif;
 `
 
 const Block = styled.div`
@@ -79,14 +86,15 @@ const HorizontalBlock = styled(Block)`
   flex-direction: row;
 `
 
-const ContentSectionTitle = styled.h2`
+const ContentSectionTitle = styled(Title)`
+  font-size: 1.2em;
   flex-grow: 1;
   border-bottom: 1px solid black;
 `
 
 const ContentSection = ({title, children}) => (
   <Block>
-    <ContentSectionTitle>{title}</ContentSectionTitle>
+    <ContentSectionTitle>{ title }</ContentSectionTitle>
     { children }
   </Block>
 )
@@ -101,9 +109,9 @@ const ContentDetails = styled.div`
   margin-bottom: 0.4em;
 `
 
-const ContentTitle = styled.h3`
+const ContentTitle = styled(Title)`
   margin: 0em;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.5em;
 `
 
@@ -125,14 +133,15 @@ const ContentDescriptor = styled.span`
 
 const ContentList = styled.ul`
   margin: 0em;
-  padding-left: 1.2em;
+  padding-left: 1.4em;
   line-height: 1.2em;
 `
 
 const Employment = ({title, employer, when, tech, what}) => (
   <ContentBlock>
     <ContentTitle>{title}</ContentTitle>
-      <ContentDetails><TwoColumn left={employer} right={when} />
+    <ContentDetails>
+      <TwoColumn left={employer} right={when} />
       <ContentDescriptor>{tech}</ContentDescriptor>
     </ContentDetails>
     <ContentList>
@@ -141,12 +150,37 @@ const Employment = ({title, employer, when, tech, what}) => (
   </ContentBlock>
 )
 
+const Project = ({title, tech, what}) => (
+  <ContentBlock>
+    <ContentTitle>{title}</ContentTitle>
+    <ContentDetails style={{ marginTop: 0 }}>
+      <ContentDescriptor>{tech}</ContentDescriptor>
+    </ContentDetails>
+    <ContentList>
+      { what.map((item, i) => <li key={i}>{item}</li>) }
+    </ContentList>
+  </ContentBlock>
+)
+
+const Education = ({degree, where, when}) => (
+  <ContentBlock>
+    <ContentTitle>{degree}</ContentTitle>
+    <TwoColumn left={where} right={when}/>
+  </ContentBlock>
+)
+
 export default () => {
   return (
     <Page>
-      <h1>Greg Fagan</h1>
+      <Title>Greg Fagan</Title>
       <ContentSection title='Employment'>
         { content.employment.map((e, i) => <Employment {...e} key={i}/>) }
+      </ContentSection>
+      <ContentSection title='Projects'>
+        { content.projects.map((e, i) => <Project {...e} key={i}/>) }
+      </ContentSection>
+      <ContentSection title='Education'>
+        <Education {...content.education} />
       </ContentSection>
     </Page>
   )
