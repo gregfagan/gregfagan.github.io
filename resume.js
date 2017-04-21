@@ -70,11 +70,11 @@ const Page = styled.div`
   padding: 2em;
   max-width: 800px;
   margin: auto;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inconsolata', sans-serif;
 `
 
 const Title = styled.h1`
-  font-family: 'Days One', sans-serif;
+  font-family: 'Merriweather', sans-serif;
 `
 
 const Block = styled.div`

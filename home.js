@@ -48,7 +48,7 @@ const Info = () => {
 
   const textStyle ={
     color: primary,
-    fontFamily: 'Days One, sans-serif',
+    fontFamily: 'Inconsolata, mono',
     textDecoration: 'none',
   }
 

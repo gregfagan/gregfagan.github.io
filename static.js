@@ -23,12 +23,12 @@ export default (locals) => {
     <!DOCTYPE html>
     <html>
       <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Greg Fagan</title>
         ${ css.map(sheet => `<link href="${sheet}" rel="stylesheet">`).join('\n') }
         <style>${ styleSheet.getCSS() } </style>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Days+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merriweather|Inconsolata" rel="stylesheet">
       </head>
       <body>
         ${ markup }
