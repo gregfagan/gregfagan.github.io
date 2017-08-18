@@ -58,8 +58,8 @@ const content = {
       title: "Exploration",
       tech: "Clojure, ClojureScript, Scheme, JavaScript, NodeJS, C++",
       what: [
-        "Study of functional programming; solving 4clojure.com koans (2014-present)",
-        "Partial development of a companion app for Twitch.tv Diablo II speed runners (2016)"
+        "Study of functional programming through a variety of languages and techniques (2014-present)",
+        "Partial development of a NodeJS app to read in-memory game data for a Twitch.tv speed running commmunity (2016)"
       ]
     }
   ]
