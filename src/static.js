@@ -23,7 +23,7 @@ export default locals => {
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Inconsolata" rel="stylesheet">
-        <style>* { margin: 0; padding: 0; }</style>
+        <link href="https://unpkg.com/normalize.css@8.0.0/normalize.css" rel="stylesheet">
         ${sheet.getStyleTags()}
       </head>
       <body>
