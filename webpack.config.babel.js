@@ -5,7 +5,7 @@ import StaticSiteGeneratorPlugin from 'static-site-generator-webpack-plugin'
 
 const config = {
   mode: 'production',
-  entry: './static.js',
+  entry: './src/static.js',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build'),
