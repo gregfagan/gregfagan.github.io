@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import content from './resume.json'
 
-const Page = styled.div`
+const Page = styled.article`
   font-size: 14px;
   padding: 2em;
   max-width: 800px;
@@ -16,31 +16,24 @@ const Title = styled.h1`
 
 const Block = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${props => (props.horizontal ? 'row' : 'column')};
+  margin-bottom: ${props => props.content && '1.2em'};
 `
 
-const HorizontalBlock = styled(Block)`
-  flex-direction: row;
-`
-
-const ContentSectionTitle = styled(Title)`
+const SectionTitle = styled(Title)`
   font-size: 1.2em;
   flex-grow: 1;
   border-bottom: 1px solid black;
 `
 
-const ContentSection = ({ title, children }) => (
-  <Block>
-    <ContentSectionTitle>{title}</ContentSectionTitle>
+const Section = ({ title, children }) => (
+  <Block as="section">
+    <SectionTitle>{title}</SectionTitle>
     {children}
   </Block>
 )
 
-const ContentBlock = styled(Block)`
-  margin-bottom: 1.2em;
-`
-
-const ContentDetails = styled.div`
+const Details = styled.div`
   margin-top: 0.4em;
   margin-bottom: 0.4em;
 `
@@ -52,13 +45,13 @@ const ContentTitle = styled(Title)`
 `
 
 const TwoColumn = ({ left, right }) => (
-  <HorizontalBlock>
+  <Block horizontal>
     <span style={{ flex: 1 }}>{left}</span>
     <span>{right}</span>
-  </HorizontalBlock>
+  </Block>
 )
 
-const ContentDescriptor = styled.span`
+const Descriptor = styled.span`
   color: #666;
   font-size: 0.9em;
   font-weight: 400;
@@ -67,65 +60,65 @@ const ContentDescriptor = styled.span`
   line-height: 1.3em;
 `
 
-const ContentList = styled.ul`
+const List = styled.ul`
   margin: 0em;
   padding-left: 1.4em;
   line-height: 1.2em;
 `
 
 const Employment = ({ title, employer, when, tech, what }) => (
-  <ContentBlock>
+  <Block content>
     <ContentTitle>{title}</ContentTitle>
-    <ContentDetails>
+    <Details>
       <TwoColumn left={employer} right={when} />
-      <ContentDescriptor>{tech}</ContentDescriptor>
-    </ContentDetails>
-    <ContentList>
+      <Descriptor>{tech}</Descriptor>
+    </Details>
+    <List>
       {what.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
-    </ContentList>
-  </ContentBlock>
+    </List>
+  </Block>
 )
 
 const Project = ({ title, tech, what }) => (
-  <ContentBlock>
+  <Block content>
     <ContentTitle>{title}</ContentTitle>
-    <ContentDetails style={{ marginTop: 0 }}>
-      <ContentDescriptor>{tech}</ContentDescriptor>
-    </ContentDetails>
-    <ContentList>
+    <Details style={{ marginTop: 0 }}>
+      <Descriptor>{tech}</Descriptor>
+    </Details>
+    <List>
       {what.map((item, i) => (
         <li key={i}>{item}</li>
       ))}
-    </ContentList>
-  </ContentBlock>
+    </List>
+  </Block>
 )
 
 const Education = ({ degree, where, when }) => (
-  <ContentBlock>
+  <Block content>
     <ContentTitle>{degree}</ContentTitle>
     <TwoColumn left={where} right={when} />
-  </ContentBlock>
+  </Block>
 )
 
 export default () => {
   return (
     <Page>
       <Title>Greg Fagan</Title>
-      <ContentSection title="Employment">
+      <Section title="Employment">
         {content.employment.map((e, i) => (
           <Employment {...e} key={i} />
         ))}
-      </ContentSection>
-      <ContentSection title="Projects">
+      </Section>
+      <Section title="Projects">
         {content.projects.map((e, i) => (
           <Project {...e} key={i} />
         ))}
-      </ContentSection>
-      <ContentSection title="Education">
+      </Section>
+      <Section title="Education">
         <Education {...content.education} />
-      </ContentSection>
+      </Section>
     </Page>
   )
 }
