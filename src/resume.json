@@ -41,21 +41,21 @@
   },
   "projects": [
     {
-      "title": "Game Development",
-      "tech": "JavaScript, React, Unity, C#, XNA, Objective-C",
+      "title": "Apps and Tools",
+      "tech": "JavaScript, NodeJS, C++",
       "what": [
-        "Ludum Dare game jam entries: highest scoring #45 out of 736 games (2013-present)",
-        "Iterative protoypes of a mobile touch based 2D platformer (2009-present)",
-        "Built Klondike Solitaire to learn JavaScript and React (2014-2015)",
-        "Shipped a single-button mobile eat-em-up game for Windows Phone (2011)"
+        "Instrument tuner and other tools for fiddle players using WebAudio (2018)",
+        "NodeJS native extension to read memory from running processes on Windows, intended for use in an app to read game data for a Twitch.tv speed running commmunity (2016)"
       ]
     },
     {
-      "title": "Exploration",
-      "tech": "Clojure, ClojureScript, Scheme, JavaScript, NodeJS, C++",
+      "title": "Games",
+      "tech": "JavaScript, React, Unity, C#, XNA, Objective-C",
       "what": [
-        "Study of functional programming through a variety of languages and techniques (2014-present)",
-        "Partial development of a NodeJS app to read in-memory game data for a Twitch.tv speed running commmunity (2016)"
+        "Iterative protoypes of a mobile touch based 2D platformer (2009-2018)",
+        "Ludum Dare game jam entries: highest scoring #45 out of 736 games (2013-2017)",
+        "Built Klondike Solitaire to learn JavaScript and React (2014-2015)",
+        "Shipped a single-button mobile eat-em-up game for Windows Phone (2011)"
       ]
     }
   ]
