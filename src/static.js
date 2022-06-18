@@ -1,21 +1,11 @@
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import { ServerStyleSheet } from 'styled-components'
+import { renderToString } from 'react-dom/server'
+import path from 'path'
 
-import Home from './home'
-import Resume from './resume'
-
-export default locals => {
-  // Only rendering one of two pages
-  const appElement = React.createElement(
-    locals.path === 'index.html' ? Home : Resume,
-  )
-  const sheet = new ServerStyleSheet()
-  const markup = ReactDOMServer.renderToStaticMarkup(
-    sheet.collectStyles(appElement),
-  )
-
-  return `
+const render = async () => {
+  const page = process.argv[2]
+  const Content = (await import(path.join(process.cwd(), page))).default
+  console.log(/* html */ `
     <!DOCTYPE html>
     <html>
       <head>
@@ -24,11 +14,12 @@ export default locals => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://fonts.googleapis.com/css?family=Merriweather|Inconsolata" rel="stylesheet">
         <link href="https://unpkg.com/normalize.css@8.0.0/normalize.css" rel="stylesheet">
-        ${sheet.getStyleTags()}
       </head>
       <body>
-        ${markup}
+        ${renderToString(<Content />)}
       </body>
     </html>
-  `
+  `)
 }
+
+render()

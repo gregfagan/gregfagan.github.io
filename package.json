@@ -6,30 +6,29 @@
   "homepage": "https://gregfagan.github.io",
   "scripts": {
     "start": "run-p watch serve",
-    "watch": "webpack --progress --watch",
+    "watch": "nodemon --ignore *.html --exec 'npx bajel'",
     "serve": "serve build",
     "clean": "rimraf build",
-    "build": "webpack",
+    "build": "bajel",
     "prepublish": "run-s clean build",
     "publish": "gh-pages -b master -s \"**/!(*.js)\" -d build"
   },
   "private": true,
   "dependencies": {
     "@babel/core": "^7.0.1",
+    "@babel/node": "^7.18.5",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "copy-webpack-plugin": "^4.0.1",
-    "gh-pages": "^1.2.0",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "bajel": "^1.1.0",
+    "gh-pages": "^4.0.0",
+    "nodemon": "^2.0.16",
     "npm-run-all": "^4.1.3",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
-    "rimraf": "^2.6.2",
-    "serve": "^10.0.0",
-    "static-site-generator-webpack-plugin": "^3.4.1",
-    "styled-components": "4.0.0-beta.2-0",
-    "webpack": "^4.18.0",
-    "webpack-cli": "^3.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2"
   }
 }

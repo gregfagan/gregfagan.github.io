@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import content from './resume.json'
 
 const Page = styled.article`
@@ -14,10 +14,12 @@ const Title = styled.h1`
   font-family: 'Merriweather', sans-serif;
 `
 
-const Block = styled.div`
+const Block = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'content' && prop !== 'horizontal',
+})`
   display: flex;
-  flex-direction: ${props => (props.horizontal ? 'row' : 'column')};
-  margin-bottom: ${props => props.content && '1.2em'};
+  flex-direction: ${(props) => (props.horizontal ? 'row' : 'column')};
+  margin-bottom: ${(props) => props.content && '1.2em'};
 `
 
 const SectionTitle = styled(Title)`

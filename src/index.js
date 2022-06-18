@@ -1,11 +1,13 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import { css, Global } from '@emotion/react'
+import styled from '@emotion/styled'
 
 import { primary } from './color'
 import { Linkedin, Github } from './icons'
 
-const GlobalStyle = createGlobalStyle`
-  html, body {
+const globalStyle = css`
+  html,
+  body {
     height: 100%;
   }
 
@@ -27,7 +29,7 @@ const Link = styled.a`
 
 export default () => (
   <>
-    <GlobalStyle />
+    <Global styles={globalStyle} />
     <div>
       <Link href="https://github.com/gregfagan">
         <Github />
