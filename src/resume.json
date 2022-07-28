@@ -1,6 +1,31 @@
 {
   "employment": [
     {
+      "title": "UI Software Architect",
+      "employer": "SparkCognition",
+      "when": "January 2022-present",
+      "tech": "TypeScript, React, NodeJS",
+      "what": [
+        "Designed a microfrontend architecture to scale UI development across distributed teams",
+        "Led a squad of 6-8 dev and test engineers as an agile scrum team",
+        "Represented frontend engineering concerns in company architecture council"
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "employer": "SparkCognition",
+      "when": "April 2021-January 2022",
+      "tech": "TypeScript, React, NodeJS",
+      "what": []
+    },
+    {
+      "title": "Software Engineer III",
+      "employer": "SparkCognition",
+      "when": "November 2018-April 2021",
+      "tech": "TypeScript, React, NodeJS",
+      "what": []
+    },
+    {
       "title": "Software Developer",
       "employer": "Self-Employed — Partnership with Intentional Futures",
       "when": "2014-2015",
