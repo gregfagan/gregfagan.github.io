@@ -23,7 +23,9 @@
       "employer": "SparkCognition",
       "when": "November 2018-April 2021",
       "tech": "TypeScript, React, NodeJS",
-      "what": []
+      "what": [
+        "Developed custom neural network visualization by rendering SVG with React"
+      ]
     },
     {
       "title": "Software Developer",
