@@ -1,11 +1,17 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import path from 'path'
+import fs from 'fs'
 
-const render = async () => {
-  const page = process.argv[2]
-  const Content = (await import(path.join(process.cwd(), page))).default
-  console.log(/* html */ `
+const out = path.join(process.cwd(), 'build')
+
+if (!fs.existsSync(out)) {
+  fs.mkdirSync(out)
+}
+
+const render = async (filename) => {
+  const Content = (await import(path.join(__dirname, `${filename}.js`))).default
+  const html = /* html */ `
     <!DOCTYPE html>
     <html>
       <head>
@@ -19,7 +25,8 @@ const render = async () => {
         ${renderToString(<Content />)}
       </body>
     </html>
-  `)
+  `
+  fs.writeFileSync(path.join(out, `${filename}.html`), html)
 }
 
-render()
+;['index', 'resume'].forEach(render)

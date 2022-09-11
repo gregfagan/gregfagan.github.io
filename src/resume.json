@@ -24,7 +24,8 @@
       "when": "November 2018-April 2021",
       "tech": "TypeScript, React, NodeJS",
       "what": [
-        "Developed custom neural network visualization by rendering SVG with React"
+        "Developed custom neural network visualization by rendering SVG with React",
+        "Implemented a virtualized data-grid with flexible and resizable columns for efficient rendering of tabular data"
       ]
     },
     {
