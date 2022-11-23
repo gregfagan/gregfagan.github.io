@@ -3,12 +3,13 @@
     {
       "title": "UI Software Architect",
       "employer": "SparkCognition",
-      "when": "January 2022-present",
+      "when": "January 2022-November 2022",
       "tech": "TypeScript, React, NodeJS",
       "what": [
         "Designed a microfrontend architecture to scale UI development across distributed teams",
         "Led a squad of 6-8 dev and test engineers as an agile scrum team",
-        "Represented frontend engineering concerns in company architecture council"
+        "Represented frontend engineering concerns in company architecture council",
+        "Created a directed-graph workflow experience for the visualization of Auto-ML hyperparameters"
       ]
     },
     {
@@ -16,7 +17,13 @@
       "employer": "SparkCognition",
       "when": "April 2021-January 2022",
       "tech": "TypeScript, React, NodeJS",
-      "what": []
+      "what": [
+        "Led the development of an in-house React component library",
+        "Leveraged advanced TypeScript techniques for an excellent developer experience for said library",
+        "Built a React frontend for a new Auto-ML application including performant time-series visualizations",
+        "Established TypeScript style and quality standards with comprehensive documentation",
+        "Served as a tech lead and mentor to junior engineers through code reviews and pair programming sessions"
+      ]
     },
     {
       "title": "Software Engineer III",
@@ -24,8 +31,9 @@
       "when": "November 2018-April 2021",
       "tech": "TypeScript, React, NodeJS",
       "what": [
-        "Developed custom neural network visualization by rendering SVG with React",
-        "Implemented a virtualized data-grid with flexible and resizable columns for efficient rendering of tabular data"
+        "Developed custom neural network visualization using React to render SVG",
+        "Implemented a virtualized data-grid with flexible and resizable columns for efficient rendering of tabular data",
+        "Worked with UX and Product Managers to add functionality to the Darwin Auto-ML web application"
       ]
     },
     {
@@ -69,19 +77,20 @@
   },
   "projects": [
     {
-      "title": "Apps and Tools",
-      "tech": "JavaScript, NodeJS, C++",
+      "title": "Apps, Art, and Tools",
+      "tech": "JavaScript, GLSL, NodeJS, C++",
       "what": [
-        "Instrument tuner and other tools for fiddle players using WebAudio (2018)",
-        "NodeJS native extension to read memory from running processes on Windows, intended for use in an app to read game data for a Twitch.tv speed running commmunity (2016)"
+        "ShaderToy generative artworks (2022)",
+        "WebAudio based tool for fiddle/violin players (2018)",
+        "NodeJS native extension to read memory from running processes on Windows (2016)"
       ]
     },
     {
       "title": "Games",
       "tech": "JavaScript, React, Unity, C#, XNA, Objective-C",
       "what": [
-        "Iterative protoypes of a mobile touch based 2D platformer (2009-2018)",
-        "Ludum Dare game jam entries: highest scoring #45 out of 736 games (2013-2017)",
+        "Ludum Dare game jam entries: highest scoring #45 out of 736 games (2013-2021)",
+        "Iteratively protoyped a mobile touch based 2D platformer (2009-2018)",
         "Built Klondike Solitaire to learn JavaScript and React (2014-2015)",
         "Shipped a single-button mobile eat-em-up game for Windows Phone (2011)"
       ]
