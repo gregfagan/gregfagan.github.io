@@ -9,9 +9,9 @@
     "watch": "nodemon --ignore *.html --exec 'npm run build'",
     "serve": "wds --watch  --root-dir build",
     "clean": "rimraf build",
-    "build": "babel-node src/static",
+    "build": "babel-node src/static && cp CNAME build",
     "prepublish": "run-s clean build",
-    "publish": "gh-pages -b master -s \"**/!(*.js)\" -d build"
+    "publish": "gh-pages -b master -d build"
   },
   "private": true,
   "dependencies": {
