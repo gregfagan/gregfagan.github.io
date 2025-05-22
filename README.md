@@ -1,5 +1,5 @@
 Personal homepage
 
-Published to gregfagan.github.io with gregfagan.com custom domain.
+Published to gregfagan.github.io with greg.dev custom domain.
 
-Static HTML generated from a little bit of React. Why use React for such a simple page? I wanted to write my resume in JSON...
+Very old and simple JSON to HTML site generator in React.
